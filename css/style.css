@@ -1,0 +1,242 @@
+/* ==========================================================================
+   1. Default Theme Variables (Midnight)
+   ========================================================================== */
+
+:root {
+  /* Core colors */
+  --bg-color:            #031926;
+  --text-color:          #ffffff;
+  --accent-color:        #00B4D8;
+  --heading-color:       #90E0EF;
+  --hero-text-color:     var(--text-color);
+
+  /* UI elements */
+  --button-bg:           #00B4D8;
+  --button-hover:        #0077B6;
+  --button-text-color:   #ffffff;
+  --button-border-color: #0077B6;
+
+  --input-bg-color:      #ffffff;
+  --input-text-color:    #000000;
+  --input-border:        #ccc;
+
+  --footer-bg-color:     #003f5c;
+  --footer-text-color:   #ffffff;
+  --footer-subtext-color: #ffffffb3;
+
+  --nav-bg:				 var(--footer-bg-color);
+  --dropdown-bg:         #1a1a1a;
+  --dropdown-text-color: #ffffff;
+  
+  --modal-button-bg:     rgba(255, 255, 255, 0.06);
+  --modal-button-hover-bg: rgba(255, 255, 255, 0.12);
+
+  /* Layout & spacing */
+  --nav-offset:          35px;    /* vertical offset for desktop nav */
+}
+
+/* ==========================================================================
+   2. Theme Overrides
+   ========================================================================== */
+
+/* Light theme */
+[data-theme="light"] {
+  --bg-color:            #f9f9f9;
+  --text-color:          #222222;
+  --heading-color:       #1A8CB9;
+  --hero-text-color:     #ffffff;
+
+  --accent-color:        #0077B6;
+  --button-bg:           #0077B6;
+  --button-hover:        #023e58;
+  --button-text-color:   #ffffff;
+  --button-border-color: #0077B6;
+
+  --input-bg-color:      #ffffff;
+  --input-text-color:    #000000;
+  --input-border:        #bbb;
+
+  --footer-bg-color:     #e0f4ff;
+  --footer-text-color:   #222222;
+  --footer-subtext-color: #222222b3;
+
+  --nav-bg:              var(--footer-bg-color);
+  --dropdown-bg:         #ffffff;
+  --dropdown-text-color: #1a1a1a;
+
+  --modal-button-bg:     rgba(0, 119, 182, 0.08);   /* απαλό θαλασσί */
+  --modal-button-hover-bg: rgba(0, 119, 182, 0.15); /* λίγο πιο έντονο */
+
+  --nav-offset:          35px;
+}
+
+/* Charcoal theme */
+[data-theme="charcoal"] {
+  --bg-color:            #2c2c2c;
+  --text-color:          #eaeaea;
+  --heading-color:       #ADE8F4;
+  --hero-text-color:     #ffffff;
+
+  --accent-color:        #00B4D8;
+  --button-bg:           #00B4D8;
+  --button-hover:        #48CAE4;
+  --button-text-color:   #eaeaea;
+  --button-border-color: #48CAE4;
+
+  --input-bg-color:      #3a3a3a;
+  --input-text-color:    #eaeaea;
+  --input-border:        #555;
+
+  --footer-bg-color:     #3a3a3a;
+  --footer-text-color:   #eaeaea;
+  --footer-subtext-color: #eaeaeab3;
+
+  --nav-bg:              var(--footer-bg-color);
+  --dropdown-bg:         #1a1a1a;
+  --dropdown-text-color: #ffffff;
+
+  --modal-button-bg:     rgba(255, 255, 255, 0.06);
+  --modal-button-hover-bg: rgba(255, 255, 255, 0.12);
+}
+
+/* ==========================================================================
+   3. Global Element Styles
+   ========================================================================== */
+
+body {
+  background-color: var(--bg-color);
+  color:            var(--text-color);
+  font-family:      'Roboto', sans-serif;
+  transition:       background-color 0.3s ease,
+                    color            0.3s ease;
+}
+
+h1, h2, h3 {
+  color: var(--heading-color);
+}
+
+a {
+  color: var(--accent-color);
+}
+
+button {
+  background-color: var(--button-bg);
+  color:            var(--button-text-color);
+  border:           1px solid var(--button-border-color);
+  transition:       background-color 0.2s ease;
+}
+button:hover {
+  background-color: var(--button-hover);
+}
+
+input, select {
+  background-color: var(--input-bg-color);
+  color:            var(--input-text-color);
+  border:           1px solid var(--input-border);
+}
+
+footer {
+  background-color: var(--footer-bg-color);
+  color:            var(--footer-text-color);
+}
+footer .subtext {
+  color: var(--footer-subtext-color);
+}
+
+/* ==========================================================================
+   4. Navigation & Underline Effects
+   ========================================================================== */
+
+header {
+  background: var(--nav-bg);
+}
+
+.nav-underline {
+  position: relative;
+}
+.nav-underline::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-color);
+  border-radius: 1px;
+  transition: width 0.3s;
+}
+.nav-underline:hover::after {
+  width: 100%;
+}
+
+nav ul {
+  background-color: var(--dropdown-bg);
+  color:            var(--dropdown-text-color);
+}
+
+/* ==========================================================================
+   5. Logo Visibility Toggle
+   ========================================================================== */
+
+.logo-light,
+.logo-dark {
+  display:    none;
+  height:     56px;
+  width:      auto;
+  transition: opacity 0.3s ease-in-out;
+}
+
+html[data-theme="charcoal"]  .logo-light,
+html[data-theme="midnight"]  .logo-light {
+  display: block;
+  opacity: 1;
+}
+
+html[data-theme="light"] .logo-dark {
+  display: block;
+  opacity: 1;
+}
+
+/* ==========================================================================
+   6. Desktop Nav Offset & Smooth Transition
+   ========================================================================== */
+
+@media (min-width: 1024px) {
+  header nav .lg\:flex {
+    margin-top: var(--nav-offset);
+    transition: margin-top 0.3s ease-in-out;
+  }
+}
+
+/* ==========================================================================
+   🔘 Login Modal Button Styling (✖ & Ακύρωση)
+   ========================================================================== */
+
+#close-login-modal,
+#cancel-button {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-color);
+  background-color: var(--modal-button-bg);
+  border-radius: 6px;
+  padding: 0.4rem 0.75rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+  line-height: 1;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+#close-login-modal:hover,
+#cancel-button:hover {
+  background-color: var(--modal-button-hover-bg);
+  opacity: 1;
+}
+
+#close-login-modal:focus,
+#cancel-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--accent-color);
+}

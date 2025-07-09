@@ -1,0 +1,25 @@
+
+C:\xampp\htdocs\TechLab
+──/css
+	└── style.css
+──/fonts
+	└── fontawesome-webfont.ttf
+	└── fontawesome-webfont.woff
+	└── fontawesome-webfont.woff2
+──/images
+	└── οι εικόνες που θα χρησιμοποιήσουμε
+──/includes
+	└── db_connect.php
+	└── footer.php
+	└── header.php
+	└── hero-section.php
+	└── login-modal.php
+	└── track-section.php
+──/js
+	└── script.js
+──/php_files
+	└── index.php
+──/queries
+	└── "κενό για μελλοντικές εφαρμογές"
+──/sql
+	└── "κενό για μελλοντικές εφαρμογές"
