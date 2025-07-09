@@ -1,4 +1,3 @@
-<!-- header.php -->
 <header class="w-full text-[var(--text-color)]" style="background: var(--nav-bg);">
   <div class="sticky top-0 z-50">
 
@@ -21,18 +20,14 @@
     <nav style="background: var(--nav-bg);">
       <div class="max-w-[1400px] mx-auto px-4 py-4 flex justify-between items-center">
 
-		<!-- Logo -->
-		<a href="index.php" class="flex items-center group transition-transform hover:scale-105 duration-300">
-		  <div class="relative mr-4 flex items-center" style="height: 85px;">
-			<img src="../images/logo-light.png"
-				 alt="TechLab Light Logo"
-				 class="logo-light h-full w-auto" />
-			<img src="../images/logo-dark.png"
-				 alt="TechLab Dark Logo"
-				 class="logo-dark h-full w-auto" />
-		  </div>
-		</a>
-				
+        <!-- Logo -->
+        <a href="index.php" class="flex items-center group transition-transform hover:scale-105 duration-300">
+          <div class="relative mr-4 flex items-center" style="height: 85px;">
+            <img src="../images/logo-light.png" alt="TechLab Light Logo" class="logo-light h-full w-auto" />
+            <img src="../images/logo-dark.png" alt="TechLab Dark Logo" class="logo-dark h-full w-auto" />
+          </div>
+        </a>
+
         <!-- Desktop Menu -->
         <div class="hidden lg:flex items-center space-x-6 text-sm font-semibold">
           <a href="index.php" class="hover:text-[var(--accent-color)] nav-underline">Αρχική</a>
@@ -51,8 +46,8 @@
             </ul>
           </div>
 
-          <a href="#" class="hover:text-[var(--accent-color)] nav-underline">Η Εταιρεία</a>
-          <a href="#" class="hover:text-[var(--accent-color)] nav-underline">Επικοινωνία</a>
+          <a href="about.php" class="hover:text-[var(--accent-color)] nav-underline">Η Εταιρεία</a>
+          <a href="contact.php" class="hover:text-[var(--accent-color)] nav-underline">Επικοινωνία</a>
 
           <button id="open-login-modal"
                   class="ml-4 px-4 py-2 rounded transition duration-200 shadow"
@@ -85,8 +80,8 @@
             <li><a href="#" class="block py-1 hover:text-[var(--accent-color)] nav-underline" onclick="selectAndClose()">Συναγερμοί / Κάμερες</a></li>
           </ul>
         </div>
-        <a href="#" class="block hover:text-[var(--accent-color)] nav-underline">Η Εταιρεία</a>
-        <a href="#" class="block hover:text-[var(--accent-color)] nav-underline">Επικοινωνία</a>
+        <a href="about.php" class="block hover:text-[var(--accent-color)] nav-underline">Η Εταιρεία</a>
+        <a href="contact.php" class="block hover:text-[var(--accent-color)] nav-underline">Επικοινωνία</a>
         <button id="mobile-login-button"
                 class="block w-full px-4 py-2 rounded transition duration-200"
                 style="background-color: var(--button-bg); color: var(--button-text-color); border: 1px solid var(--button-border-color);">
