@@ -1,49 +1,42 @@
+// ✅ /js/script.js — Πλήρης, διορθωμένος κώδικας
+
 document.addEventListener('DOMContentLoaded', () => {
   const htmlEl = document.documentElement;
 
-  // — Update footer year
+  // 🕒 Ενημέρωση έτους στο footer
   const yearSpan = document.getElementById('displayYear');
-  if (yearSpan) {
-    yearSpan.textContent = new Date().getFullYear();
-  }
+  if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-  // — Load saved theme or default to midnight
+  // 🎨 Φόρτωση αποθηκευμένου theme (ή default "midnight")
   const themeSelFooter = document.getElementById('theme-dropdown-footer');
   const savedTheme = localStorage.getItem('theme') || 'midnight';
   htmlEl.setAttribute('data-theme', savedTheme);
-  if (themeSelFooter) {
-    themeSelFooter.value = savedTheme;
-  }
+  if (themeSelFooter) themeSelFooter.value = savedTheme;
 
-  // — Header theme-toggle button
+  // 🌗 Theme toggle από το κουμπί του header
   document.getElementById('theme-toggle')?.addEventListener('click', () => {
     const current = htmlEl.getAttribute('data-theme') || 'midnight';
-    const next =
-      current === 'midnight'
-        ? 'light'
-        : current === 'light'
-        ? 'charcoal'
-        : 'midnight';
+    const next = current === 'midnight' ? 'light' : current === 'light' ? 'charcoal' : 'midnight';
     htmlEl.setAttribute('data-theme', next);
     localStorage.setItem('theme', next);
     if (themeSelFooter) themeSelFooter.value = next;
   });
 
-  // — Footer dropdown theme selector
+  // 🎛️ Εναλλαγή theme από dropdown στο footer
   themeSelFooter?.addEventListener('change', (e) => {
     const sel = e.target.value;
     htmlEl.setAttribute('data-theme', sel);
     localStorage.setItem('theme', sel);
   });
 
-  // — Mobile menu toggle
+  // 📱 ✅ Mobile menu toggle (διόρθωση για dynamic DOM)
   document
     .getElementById('mobile-menu-button')
     ?.addEventListener('click', () => {
       document.getElementById('mobile-menu')?.classList.toggle('hidden');
     });
 
-  // — Login modal logic
+  // 🔐 Login modal λειτουργίες
   const loginModal = document.getElementById('login-modal');
   const openBtn = document.getElementById('open-login-modal');
   const openBtnMobile = document.getElementById('mobile-login-button');
@@ -77,47 +70,53 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 300);
   }
 
+  // 🔐 Ενεργοποίηση modal από κουμπιά
   openBtn?.addEventListener('click', openLoginModal);
   openBtnMobile?.addEventListener('click', openLoginModal);
   closeBtn?.addEventListener('click', closeLoginModal);
   cancelBtn?.addEventListener('click', closeLoginModal);
 
+  // 🔐 Κλείσιμο modal αν γίνει click εκτός
   loginModal?.addEventListener('click', (e) => {
     if (e.target === loginModal) closeLoginModal();
   });
+
+  // 🔐 Κλείσιμο modal με ESC
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeLoginModal();
   });
 
+  // 🔐 Υποβολή login form
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
     const user = usernameField?.value.trim() || '';
     const pass = passwordField?.value.trim() || '';
     const rem = rememberCheckbox?.checked;
+
     if (!user || !pass) {
       alert('Συμπλήρωσε όλα τα πεδία.');
       return;
     }
+
     const res = await fetch('/api/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username: user, password: pass })
     });
+
     const data = await res.json();
     if (data.success) {
       alert('Επιτυχής σύνδεση!');
-      if (rem) {
-        localStorage.setItem('remembered-username', user);
-      } else {
-        localStorage.removeItem('remembered-username');
-      }
+      if (rem) localStorage.setItem('remembered-username', user);
+      else localStorage.removeItem('remembered-username');
       closeLoginModal();
     } else {
       alert('Λάθος στοιχεία.');
     }
   });
 
+  // 🔐 Επιτρέπει εξωτερικό κλείσιμο του modal
   window.closeLoginModal = closeLoginModal;
 
-  // — Logo switching: handled entirely by CSS display rules
+  // 🖼️ Εναλλαγή logos γίνεται μόνο από CSS (logo-light / logo-dark)
 });

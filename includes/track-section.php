@@ -1,4 +1,5 @@
 <!-- /includes/track-section.php -->
+
 <section id="track" class="relative py-3 mt-0 text-center" style="background-color: var(--bg-color);">
   <div class="relative mx-auto max-w-[1400px] overflow-hidden">
 
@@ -12,7 +13,7 @@
         
         <!-- Επικεφαλίδα -->
         <div class="max-w-2xl mx-auto mb-8">
-          <h2 class="text-3xl md:text-5xl font-bold mb-4" style="color: var(--heading-color);">
+          <h2 class="text-3xl md:text-5xl font-bold mb-4" style="color: var(--hero-text-color);">
             Εύρεση Επισκευής
           </h2>
           <p class="text-lg md:text-2xl" style="color: var(--hero-text-color);">

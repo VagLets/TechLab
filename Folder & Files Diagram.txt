@@ -18,6 +18,8 @@ C:\xampp\htdocs\TechLab
 ──/js
 	└── script.js
 ──/php_files
+	└── about.php
+	└── contact.php
 	└── index.php
 ──/queries
 	└── "κενό για μελλοντικές εφαρμογές"

@@ -1,4 +1,5 @@
-<!-- 🔒 Login Modal Overlay -->
+<!-- /includes/login-modal.php -->
+
 <div id="login-modal"
      class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
 

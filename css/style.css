@@ -1,3 +1,5 @@
+/* ✅ /css/style.css */
+
 /* ==========================================================================
    1. Default Theme Variables (Midnight)
    ========================================================================== */
@@ -24,15 +26,15 @@
   --footer-text-color:   #ffffff;
   --footer-subtext-color: #ffffffb3;
 
-  --nav-bg:				 var(--footer-bg-color);
+  --nav-bg:              var(--footer-bg-color);
   --dropdown-bg:         #1a1a1a;
   --dropdown-text-color: #ffffff;
-  
+
   --modal-button-bg:     rgba(255, 255, 255, 0.06);
   --modal-button-hover-bg: rgba(255, 255, 255, 0.12);
 
   /* Layout & spacing */
-  --nav-offset:          35px;    /* vertical offset for desktop nav */
+  --nav-offset:          35px;
 }
 
 /* ==========================================================================
@@ -64,8 +66,8 @@
   --dropdown-bg:         #ffffff;
   --dropdown-text-color: #1a1a1a;
 
-  --modal-button-bg:     rgba(0, 119, 182, 0.08);   /* απαλό θαλασσί */
-  --modal-button-hover-bg: rgba(0, 119, 182, 0.15); /* λίγο πιο έντονο */
+  --modal-button-bg:     rgba(0, 119, 182, 0.08);
+  --modal-button-hover-bg: rgba(0, 119, 182, 0.15);
 
   --nav-offset:          35px;
 }
@@ -107,8 +109,7 @@ body {
   background-color: var(--bg-color);
   color:            var(--text-color);
   font-family:      'Roboto', sans-serif;
-  transition:       background-color 0.3s ease,
-                    color            0.3s ease;
+  transition:       background-color 0.3s ease, color 0.3s ease;
 }
 
 h1, h2, h3 {
@@ -175,14 +176,14 @@ nav ul {
 }
 
 /* ==========================================================================
-   5. Logo Visibility Toggle
+   5. Logo Visibility Toggle via Theme
    ========================================================================== */
 
 .logo-light,
 .logo-dark {
-  display:    none;
-  height:     56px;
-  width:      auto;
+  display: none;
+  height: 56px;
+  width: auto;
   transition: opacity 0.3s ease-in-out;
 }
 
@@ -198,7 +199,7 @@ html[data-theme="light"] .logo-dark {
 }
 
 /* ==========================================================================
-   6. Desktop Nav Offset & Smooth Transition
+   6. Desktop Nav Offset
    ========================================================================== */
 
 @media (min-width: 1024px) {
@@ -209,7 +210,7 @@ html[data-theme="light"] .logo-dark {
 }
 
 /* ==========================================================================
-   🔘 Login Modal Button Styling (✖ & Ακύρωση)
+   7. Login Modal Buttons
    ========================================================================== */
 
 #close-login-modal,
@@ -228,15 +229,58 @@ html[data-theme="light"] .logo-dark {
   line-height: 1;
   transition: background-color 0.2s ease, opacity 0.2s ease;
 }
-
 #close-login-modal:hover,
 #cancel-button:hover {
   background-color: var(--modal-button-hover-bg);
   opacity: 1;
 }
-
 #close-login-modal:focus,
 #cancel-button:focus {
   outline: none;
   box-shadow: 0 0 0 2px var(--accent-color);
+}
+
+/* ==========================================================================
+   8. CTA Buttons
+   ========================================================================== */
+
+.cta-button {
+  display: inline-block;
+  padding: 12px 32px;
+  background-color: var(--primary-color, #007bff);
+  color: var(--button-text-color, #fff);
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.cta-button:hover {
+  background-color: var(--primary-hover-color, #0056b3);
+  transform: translateY(-2px);
+}
+.cta-button:active {
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   9. ✅ Mobile Menu Styling Fix
+   ========================================================================== */
+
+#mobile-menu {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+#mobile-menu:not(.hidden) {
+  display: block !important;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }

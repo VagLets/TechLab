@@ -1,4 +1,5 @@
 <!-- /includes/footer.php -->
+
 <footer class="pt-5 text-center" style="background-color: var(--footer-bg-color); color: var(--footer-text-color);">
   <div class="max-w-[1400px] mx-auto px-4">
 
